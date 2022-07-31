@@ -18,11 +18,15 @@
 //Come up with an algorithym that is less than O(n^2) time complexity.
 
 const twoSum = (nums, target) => {
+    //make a map, maps are great key, value objects. we can store the value and index
     const partners = new Map();
     for (let i = 0; i < nums.length; i++) {
+        // for each number passed, check if the partners map has a number that equals the target - nums[i]
         if (partners.has(target - nums[i])) {
+            //if so, return that numbers index and the current index
             return [partners.get(target-nums[i]),i]
         } else {
+            //else save that number and its index
             partners.set(nums[i], i);
         }
     }
