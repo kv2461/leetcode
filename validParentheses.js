@@ -29,11 +29,13 @@ var isValid = (s) => {
       ]);
     const stack = [];
     for (let i = 0; i < s.length; i++) {
+        //if closing bracket, see if stack's most recent addition is its opening bracket
         if (bracketMap.has(s[i])) {
             const pop = stack.pop();
             if (pop !== bracketMap.get(s[i])) {
                 return false;
             }
+            //if opening bracket, put in stack
         } else {
             stack.push(s[i]);
         }
