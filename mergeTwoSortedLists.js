@@ -22,3 +22,37 @@
 
 // Input: list1 = [], list2 = [0]
 // Output: [0]
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+
+ var mergeTwoLists = function(L1, L2) {
+        // create new linked list pointer
+    var L3 = new ListNode(null, null);
+    var prev = L3;
+    
+    // while both linked lists are not empty
+    while (L1 !== null && L2 !== null) {
+      if (L1.val <= L2.val) { 
+        prev.next = L1;
+        L1 = L1.next;
+      } else {
+        prev.next = L2;
+        L2 = L2.next;
+      }
+      prev = prev.next;
+    }
+    
+    // once we reach end of a linked list, append the other 
+    // list because we know it is already sorted
+    if (L1 === null) { prev.next = L2; }
+    if (L2 === null) { prev.next = L1; }
+    
+    // return the sorted linked list
+    return L3.next;
+};
