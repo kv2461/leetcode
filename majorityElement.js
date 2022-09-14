@@ -24,13 +24,13 @@
 // Follow-up: Could you solve the problem in linear time and in O(1) space?
 
 var majorityElement = function(nums) {
-    let numsObj = {};
+    let numsObj = {}; //initialize empty Obj
     let maxFreq = 0;
     let maxElement = null;
     for (let num of nums) {
-        numsObj[num] = numsObj[num] + 1 || 1;
+        numsObj[num] = numsObj[num] + 1 || 1; //for each element you see, create a key with a value of 1, unless you’ve seen it before, in which case, just add 1 to its value.
     }
-    for (num in numsObj) {
+    for (num in numsObj) { //see which num is higher than maxFreq, and make that maxFreq if its higher
         if (numsObj[num] > maxFreq) {
         maxFreq = numsObj[num];
         maxElement = parseInt(num);
