@@ -36,7 +36,7 @@
 var plusOne = function(digits) {
     let digitsToStringArray = digits.map((digit) => digit.toString());
     let digitsToString = digitsToStringArray.join('');
-    let digitsParsed = BigInt(digitsToString);
+    let digitsParsed = BigInt(digitsToString); //parseInt only works for digit length of 16..
     let digitsAdded = digitsParsed + 1n;
     let digitsToStringArrayAgain = digitsAdded.toString().split('');
     return digitsToStringArrayAgain.map((digit) => parseInt(digit));
